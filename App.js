@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 { /*Intro Imports */ }
 import Kanji from './src/intro/Kanji';
+import Radicals from './src/intro/Radicals';
 
 { /*Navigators */ }
 const Stack = createStackNavigator();
@@ -14,12 +15,16 @@ const Tab = createBottomTabNavigator();
 { /*Navigation Screens */ }
 function HomeScreen( { navigation  }) {
   return (
-    <View style = {{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Home Screen</Text>
+    <View style = {{ flex: 1, alignItems: 'stretch', justifyContent: 'space-around'}}>
 
       <Button
         title = 'Introduction to Kanji'
         onPress = {() => navigation.navigate('Introduction to Kanji')}
+      />
+
+      <Button
+        title = 'Introduction to Radicals'
+        onPress = {() => navigation.navigate('Introduction to Radicals')}
       />
     </View>
   );
@@ -53,6 +58,21 @@ function HomeStackScreen() {
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          headerTitleAlign: 'center',
+        }}
+      />
+
+      <Stack.Screen
+        name = 'Introduction to Radicals'
+        component = { Radicals }
+        options = {{
+          headerStyle: {
+            backgroundColor: '#673AB7',
+          },
+          headerTintColor: '#fff',
+          headerTintStyle: {
             fontWeight: 'bold',
           },
           headerTitleAlign: 'center',
