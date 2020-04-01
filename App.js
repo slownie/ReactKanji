@@ -19,11 +19,13 @@ function HomeScreen( { navigation  }) {
 
       <Button
         title = 'Introduction to Kanji'
+        color = '#512b58'
         onPress = {() => navigation.navigate('Introduction to Kanji')}
       />
 
       <Button
         title = 'Introduction to Radicals'
+        color = '#512b58'
         onPress = {() => navigation.navigate('Introduction to Radicals')}
       />
     </View>
@@ -39,13 +41,16 @@ function HomeStackScreen() {
         component = { HomeScreen }
         options = {{
           headerStyle: {
-            backgroundColor: '#673AB7',
+            backgroundColor: '#79bac1',
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
             fontWeight: 'bold',
           },
           headerTitleAlign: 'center',
+          cardStyle: {
+            backgroundColor: '#2a7886',
+          },
         }}
       />
 
@@ -54,7 +59,7 @@ function HomeStackScreen() {
         component = { Kanji }
         options = {{
           headerStyle: {
-            backgroundColor: '#673AB7',
+            backgroundColor: '#79bac1',
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
@@ -69,7 +74,7 @@ function HomeStackScreen() {
         component = { Radicals }
         options = {{
           headerStyle: {
-            backgroundColor: '#673AB7',
+            backgroundColor: '#79bac1',
           },
           headerTintColor: '#fff',
           headerTintStyle: {
@@ -89,7 +94,7 @@ function App() {
     <NavigationContainer>
       <Tab.Navigator
         tabBarOptions = {{
-          activeTintColor: '#673AB7',
+          activeTintColor: '#79bac1',
         }}
       >
         <Tab.Screen name = 'Home' component = { HomeStackScreen } />
