@@ -4,16 +4,23 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+{ /*Intro Imports */ }
+import Kanji from './src/intro/Kanji';
 
 { /*Navigators */ }
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 { /*Navigation Screens */ }
-function HomeScreen() {
+function HomeScreen( { navigation  }) {
   return (
     <View style = {{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Text>Home Screen</Text>
+
+      <Button
+        title = 'Introduction to Kanji'
+        onPress = {() => navigation.navigate('Introduction to Kanji')}
+      />
     </View>
   );
 }
@@ -23,8 +30,23 @@ function HomeStackScreen() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name = "React Kanji"
+        name = 'React Kanji'
         component = { HomeScreen }
+        options = {{
+          headerStyle: {
+            backgroundColor: '#673AB7',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          headerTitleAlign: 'center',
+        }}
+      />
+
+      <Stack.Screen
+        name = 'Introduction to Kanji'
+        component = { Kanji }
         options = {{
           headerStyle: {
             backgroundColor: '#673AB7',
