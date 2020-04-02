@@ -8,12 +8,15 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Kanji from './src/intro/Kanji';
 import Radicals from './src/intro/Radicals';
 
+{ /*Dictionary Imports */ }
+import Joyo1 from './src/dictionary/Joyo1';
+
 { /*Navigators */ }
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 { /*Navigation Screens */ }
-function HomeScreen( { navigation  }) {
+function HomeScreen( { navigation  } ) {
   return (
     <View style = {{ flex: 1, alignItems: 'stretch', justifyContent: 'space-around'}}>
 
@@ -26,6 +29,19 @@ function HomeScreen( { navigation  }) {
         title = 'Introduction to Radicals'
         onPress = {() => navigation.navigate('Introduction to Radicals')}
       />
+    </View>
+  );
+}
+
+function DictionaryScreen( { navigation } ) {
+  return (
+    <View style = {{ flex: 1, alignItems: 'stretch', justifyContent: 'space-around' }}>
+
+      <Button
+        title = 'Jōyō 1'
+        onPress = {() => navigation.navigate('Jōyō 1')}
+      />
+
     </View>
   );
 }
@@ -82,6 +98,42 @@ function HomeStackScreen() {
   );
 }
 
+function DictionaryStackScreen() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name = 'Dictionary'
+        component = { DictionaryScreen }
+        options = {{
+          headerStyle: {
+            backgroundColor: '#673AB7',
+          },
+          headerTintColor: '#fff',
+          headerTintStyle: {
+            fontWeight: 'bold',
+          },
+          headerTitleAlign: 'center',
+        }}
+      />
+
+      <Stack.Screen
+        name = 'Jōyō 1'
+        component = { Joyo1 }
+        options = {{
+          headerStyle: {
+            backgroundColor: '#673AB7',
+          },
+          headerTintColor: '#fff',
+          headerTintStyle: {
+            fontWeight: 'bold',
+          },
+          headerTitleAlign: 'center',
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
 
 { /*Main Function  */ }
 function App() {
@@ -93,7 +145,7 @@ function App() {
         }}
       >
         <Tab.Screen name = 'Home' component = { HomeStackScreen } />
-        <Tab.Screen name = 'Dictionary' component = { HomeStackScreen } />
+        <Tab.Screen name = 'Dictionary' component = { DictionaryStackScreen } />
         <Tab.Screen name = 'Quiz' component = { HomeStackScreen } />
       </Tab.Navigator>
     </NavigationContainer>

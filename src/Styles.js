@@ -18,6 +18,16 @@ const styles = StyleSheet.create({
         lineHeight: 15,
     },
 
+    bold: {
+        color: 'black',
+        fontWeight: 'bold',
+        marginLeft: 5,
+        marginRight: 5,
+        marginBottom: 5,
+        fontSize: 12,
+        lineHeight: 15,
+    },
+
     highlight: {
         color: 'black',
         alignSelf: 'center',
